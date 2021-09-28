@@ -8,7 +8,7 @@ class Snackbars {
   static void setupHasBegun() {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
-    final startTime = JobController.to.jobSetupStartTime;
+    final startTime = JobController.to.jobActionTime;
     final snackBar = GetBar(
       messageText: MyTextWidget(
           text:
@@ -27,7 +27,7 @@ class Snackbars {
   static void setupHasCompleted() {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
-    final completedTime = JobController.to.jobSetupCompleteTime;
+    final completedTime = JobController.to.jobActionTime;
     final snackBar = GetBar(
       messageText: MyTextWidget(
           text:

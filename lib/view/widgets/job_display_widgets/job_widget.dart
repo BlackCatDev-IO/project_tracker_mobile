@@ -110,8 +110,10 @@ class _JobParamWidget extends StatelessWidget {
         MyTextWidget(
             text: '$description: ',
             color: Colors.blue,
+            fontSize: 12.sp,
             fontWeight: FontWeight.w500),
-        MyTextWidget(text: value, color: statusColor ?? Colors.white),
+        MyTextWidget(
+            text: value, color: statusColor ?? Colors.white, fontSize: 12.sp),
       ],
     );
   }

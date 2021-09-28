@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
 import 'package:black_cat_lib/black_cat_lib.dart';
 import 'package:hc_labor_tracker/utils/job_status_formatter.dart';
-import 'package:hc_labor_tracker/view/widgets/buttons/end_setup_button.dart';
-import 'package:hc_labor_tracker/view/widgets/buttons/start_setup_button.dart';
+import 'package:hc_labor_tracker/view/widgets/buttons/job_action_button.dart';
 import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_status_display_widget.dart';
 import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_widget.dart';
 import 'package:hc_labor_tracker/view/widgets/my_app_bar.dart';
@@ -31,12 +30,10 @@ class SelectedJobScreen extends GetView<JobController> {
             children: [
               sizedBox5High,
               JobWidget(model: currentJob),
-              JobStatusDisplayWigget(statusDisplayModel),
+              JobStatusDisplayWidget(statusDisplayModel),
               const SetupNotesTextfield(),
               const Spacer(),
-              currentJob.jobStatus == JobStatus.setupInProgress
-                  ? const EndSetupButton()
-                  : const StartSetupButton(),
+              JobActionButton(model: JobStatusFormatter.buttonModel),
               const SizedBox(height: 50),
             ],
           ).paddingSymmetric(horizontal: 10);

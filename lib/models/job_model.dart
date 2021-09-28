@@ -46,11 +46,11 @@ class JobModel {
       case 'setup_in_progress':
         return JobStatus.setupInProgress;
       case 'setup_completed':
-        return JobStatus.setupCompleted;
+        return JobStatus.setupComplete;
       case 'strike_in_progress':
         return JobStatus.strikeInProgress;
       case 'strike_completed':
-        return JobStatus.strikeCompleted;
+        return JobStatus.strikeComplete;
 
       default:
         throw 'Invalid job status string from server';

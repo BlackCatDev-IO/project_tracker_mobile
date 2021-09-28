@@ -10,9 +10,9 @@ import 'package:hc_labor_tracker/view/toasts/toasts.dart';
 enum JobStatus {
   setupNotYetBegun,
   setupInProgress,
-  setupCompleted,
+  setupComplete,
   strikeInProgress,
-  strikeCompleted,
+  strikeComplete,
 }
 
 class JobController extends GetxController {
@@ -22,13 +22,9 @@ class JobController extends GetxController {
 
   int selectedJobIndex = 0;
 
-  String statusText = '';
-
   JobStatus jobStatus = JobStatus.setupNotYetBegun;
 
-  // late Color statusColor;
-
-  late TimeOfDay jobSetupStartTime, jobSetupCompleteTime;
+  late TimeOfDay jobActionTime;
 
   final textController = TextEditingController();
 
@@ -44,19 +40,30 @@ class JobController extends GetxController {
     Get.toNamed(SelectedJobScreen.id);
   }
 
-  Future<void> startSetup(
+  Future<void> jobAction(
       {required JobStatus status, required BuildContext toastContext}) async {
-    await _editTime();
-    _updateJobStatus(status: status);
-    Toasts.setupHasBegun(toastContext);
-  }
+    jobActionTime = TimeOfDay.now();
 
-  Future<void> endSetup(
-      {required JobStatus status, required BuildContext toastContext}) async {
-    jobSetupCompleteTime = TimeOfDay.now();
+    switch (status) {
+      case JobStatus.setupInProgress:
+        await _editTime();
+        Toasts.setupHasBegun(toastContext);
+        break;
+      case JobStatus.setupComplete:
+        Get.toNamed(HomePage.id);
+        Toasts.setupComplete(toastContext);
+        break;
+      case JobStatus.strikeInProgress:
+        Toasts.strikeInProgress(toastContext);
+        break;
+      case JobStatus.strikeComplete:
+        Get.toNamed(HomePage.id);
+        Toasts.strikeComplete(toastContext);
+        break;
+      case JobStatus.setupNotYetBegun:
+        throw 'setupNotYetBegun is not a status that should be passed into jobAction funciton';
+    }
     _updateJobStatus(status: status);
-    Get.toNamed(HomePage.id);
-    Toasts.setupCompleted(toastContext);
   }
 
   void _updateJobStatus({required JobStatus status}) {
@@ -75,7 +82,7 @@ class JobController extends GetxController {
       initialEntryMode: TimePickerEntryMode.input,
       context: Get.context!,
     );
-    jobSetupStartTime = pickedTime!;
+    jobActionTime = pickedTime!;
   }
 
   /// mock data for now -- real data to be populated from server

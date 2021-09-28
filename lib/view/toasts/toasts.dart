@@ -6,7 +6,7 @@ class Toasts {
   static void setupHasBegun(BuildContext context) {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
-    final startTime = JobController.to.jobSetupStartTime;
+    final startTime = JobController.to.jobActionTime;
 
     final toastText =
         'Setup for $jobTitle has begun at ${startTime.format(context)}';
@@ -14,13 +14,35 @@ class Toasts {
     MyToasts.showToast(toastContext: context, text: toastText);
   }
 
-  static void setupCompleted(BuildContext context) {
+  static void setupComplete(BuildContext context) {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
-    final completedTime = JobController.to.jobSetupCompleteTime;
+    final completedTime = JobController.to.jobActionTime;
 
     final toastText =
         'Setup for $jobTitle has completed at ${completedTime.format(context)}';
+
+    MyToasts.showToast(toastContext: context, text: toastText);
+  }
+
+  static void strikeInProgress(BuildContext context) {
+    final jobTitle =
+        JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
+    final strikeStartTime = JobController.to.jobActionTime;
+
+    final toastText =
+        'Strike for $jobTitle has begun at ${strikeStartTime.format(context)}';
+
+    MyToasts.showToast(toastContext: context, text: toastText);
+  }
+
+  static void strikeComplete(BuildContext context) {
+    final jobTitle =
+        JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
+    final jobCompletedTime = JobController.to.jobActionTime;
+
+    final toastText =
+        'Strike for $jobTitle has completed at ${jobCompletedTime.format(context)}';
 
     MyToasts.showToast(toastContext: context, text: toastText);
   }
