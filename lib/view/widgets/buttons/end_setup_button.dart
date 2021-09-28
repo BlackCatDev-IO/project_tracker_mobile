@@ -4,8 +4,7 @@ import 'package:get/get.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
 
 class EndSetupButton extends GetView<JobController> {
-  final BuildContext context;
-  const EndSetupButton(this.context);
+  const EndSetupButton();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +12,8 @@ class EndSetupButton extends GetView<JobController> {
       width: double.maxFinite,
       height: 50,
       child: ElevatedButton(
-        onPressed: () => controller.endSetup(status: JobStatus.setupCompleted),
+        onPressed: () => controller.endSetup(
+            status: JobStatus.setupCompleted, toastContext: context),
         style: ElevatedButton.styleFrom(primary: Colors.red),
         child: const MyTextWidget(text: 'End Setup'),
       ),

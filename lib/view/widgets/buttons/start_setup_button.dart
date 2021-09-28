@@ -5,8 +5,7 @@ import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
 
 class StartSetupButton extends GetView<JobController> {
-  final BuildContext toastContext;
-  const StartSetupButton(this.toastContext);
+  const StartSetupButton();
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class StartSetupButton extends GetView<JobController> {
       height: 50,
       child: ElevatedButton(
         onPressed: () => controller.startSetup(
-            status: JobStatus.setupInProgress, toastContext: toastContext),
+            status: JobStatus.setupInProgress, toastContext: context),
         child: const MyTextWidget(text: 'Start Setup'),
       ),
     ).paddingOnly(top: 5);

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,7 +5,6 @@ import 'package:hc_labor_tracker/controllers/event_location_controller.dart';
 import 'package:hc_labor_tracker/models/job_model.dart';
 import 'package:hc_labor_tracker/view/screens/home_page.dart';
 import 'package:hc_labor_tracker/view/screens/selected_job_screen.dart';
-import 'package:hc_labor_tracker/view/snackbars/snackbar.dart';
 import 'package:hc_labor_tracker/view/toasts/toasts.dart';
 
 enum JobStatus {
@@ -49,17 +46,17 @@ class JobController extends GetxController {
 
   Future<void> startSetup(
       {required JobStatus status, required BuildContext toastContext}) async {
-    final toastController = Get.put(MyToast());
     await _editTime();
     _updateJobStatus(status: status);
-    MyToast.setupHasBegun(toastContext);
+    Toasts.setupHasBegun(toastContext);
   }
 
-  Future<void> endSetup({required JobStatus status}) async {
+  Future<void> endSetup(
+      {required JobStatus status, required BuildContext toastContext}) async {
     jobSetupCompleteTime = TimeOfDay.now();
     _updateJobStatus(status: status);
     Get.toNamed(HomePage.id);
-    MyToast.setupCompleted();
+    Toasts.setupCompleted(toastContext);
   }
 
   void _updateJobStatus({required JobStatus status}) {
