@@ -16,7 +16,12 @@ class JobActionButton extends GetView<JobController> {
       child: ElevatedButton(
         onPressed: () =>
             controller.jobAction(status: model.status, toastContext: context),
-        style: ElevatedButton.styleFrom(primary: model.color),
+        style: ElevatedButton.styleFrom(
+          primary: model.color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+        ),
         child: MyTextWidget(text: model.buttonText),
       ),
     ).paddingOnly(top: 5);

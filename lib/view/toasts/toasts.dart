@@ -11,7 +11,12 @@ class Toasts {
     final toastText =
         'Setup for $jobTitle has begun at ${startTime.format(context)}';
 
-    MyToasts.showToast(toastContext: context, text: toastText);
+    MyToasts.showToast(
+      toastContext: context,
+      text: toastText,
+      bottomOffset: 150,
+      isTop: false,
+    );
   }
 
   static void setupComplete(BuildContext context) {
@@ -22,7 +27,12 @@ class Toasts {
     final toastText =
         'Setup for $jobTitle has completed at ${completedTime.format(context)}';
 
-    MyToasts.showToast(toastContext: context, text: toastText);
+    MyToasts.showToast(
+      toastContext: context,
+      text: toastText,
+      bottomOffset: 150,
+      isTop: false,
+    );
   }
 
   static void strikeInProgress(BuildContext context) {
@@ -33,7 +43,12 @@ class Toasts {
     final toastText =
         'Strike for $jobTitle has begun at ${strikeStartTime.format(context)}';
 
-    MyToasts.showToast(toastContext: context, text: toastText);
+    MyToasts.showToast(
+      toastContext: context,
+      text: toastText,
+      bottomOffset: 150,
+      isTop: false,
+    );
   }
 
   static void strikeComplete(BuildContext context) {
@@ -44,6 +59,11 @@ class Toasts {
     final toastText =
         'Strike for $jobTitle has completed at ${jobCompletedTime.format(context)}';
 
-    MyToasts.showToast(toastContext: context, text: toastText);
+    MyToasts.showToast(
+      toastContext: context,
+      text: toastText,
+      bottomOffset: 150,
+      isTop: false,
+    );
   }
 }
