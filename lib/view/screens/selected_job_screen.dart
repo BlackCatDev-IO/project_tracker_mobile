@@ -30,12 +30,7 @@ class SelectedJobScreen extends GetView<JobController> {
             children: [
               sizedBox5High,
               JobWidget(model: currentJob),
-              currentJob.jobStatus == JobStatus.setupInProgress
-                  ? MyTextWidget(
-                      text: statusDisplayModel.statusText,
-                      color: Colors.green,
-                      fontSize: 20)
-                  : const SizedBox(),
+              JobStatusDisplayWigget(statusDisplayModel),
               const SetupNotesTextfield(),
               const Spacer(),
               currentJob.jobStatus == JobStatus.setupInProgress
@@ -47,5 +42,16 @@ class SelectedJobScreen extends GetView<JobController> {
         },
       ),
     );
+  }
+}
+
+class JobStatusDisplayWigget extends StatelessWidget {
+  final JobStatusDisplayModel model;
+  const JobStatusDisplayWigget(this.model);
+
+  @override
+  Widget build(BuildContext context) {
+    return MyTextWidget(
+        text: model.statusText, color: model.statusColor, fontSize: 20);
   }
 }

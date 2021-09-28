@@ -21,10 +21,11 @@ class JobWidget extends GetView<JobController> {
     final endTime = DateTimeFormatter.formateFullDate12hr(model.eventEnd);
     final jobStatusDisplayModel =
         JobStatusFormatter.statusDisplay(status: model.jobStatus);
+    final isSelectedJobScreen = jobIndex == null;
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () =>
-          jobIndex != null ? controller.selectJob(index: jobIndex!) : null,
+          !isSelectedJobScreen ? controller.selectJob(index: jobIndex!) : null,
       child: GetBuilder<JobController>(
         id: model.jobCode,
         builder: (_) {
@@ -61,10 +62,13 @@ class JobWidget extends GetView<JobController> {
                 value: endTime,
               ),
               sizedBox5High,
-              _JobParamWidget(
-                  description: 'Status',
-                  value: jobStatusDisplayModel.statusText,
-                  statusColor: jobStatusDisplayModel.statusColor),
+              if (isSelectedJobScreen)
+                const SizedBox()
+              else
+                _JobParamWidget(
+                    description: 'Status',
+                    value: jobStatusDisplayModel.statusText,
+                    statusColor: jobStatusDisplayModel.statusColor),
               const Divider(color: Colors.white).paddingOnly(top: 10),
             ],
           );
