@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
-import 'package:hc_labor_tracker/view/widgets/job_widget.dart';
+import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_widget.dart';
 
 class TodayJobs extends StatelessWidget {
   const TodayJobs({Key? key}) : super(key: key);

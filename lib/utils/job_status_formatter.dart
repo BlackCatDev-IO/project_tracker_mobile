@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
+import 'package:hc_labor_tracker/models/job_status_display_model.dart';
 
 class JobStatusFormatter {
   static JobStatusDisplayModel statusDisplay({required JobStatus status}) {
@@ -27,9 +28,3 @@ class JobStatusFormatter {
   }
 }
 
-class JobStatusDisplayModel {
-  final String statusText;
-  final Color statusColor;
-
-  JobStatusDisplayModel({required this.statusText, required this.statusColor});
-}

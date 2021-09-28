@@ -6,7 +6,8 @@ import 'package:black_cat_lib/black_cat_lib.dart';
 import 'package:hc_labor_tracker/utils/job_status_formatter.dart';
 import 'package:hc_labor_tracker/view/widgets/buttons/end_setup_button.dart';
 import 'package:hc_labor_tracker/view/widgets/buttons/start_setup_button.dart';
-import 'package:hc_labor_tracker/view/widgets/job_widget.dart';
+import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_status_display_widget.dart';
+import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_widget.dart';
 import 'package:hc_labor_tracker/view/widgets/my_app_bar.dart';
 import 'package:hc_labor_tracker/view/widgets/textfields/setup_notes_textfield.dart';
 
@@ -42,16 +43,5 @@ class SelectedJobScreen extends GetView<JobController> {
         },
       ),
     );
-  }
-}
-
-class JobStatusDisplayWigget extends StatelessWidget {
-  final JobStatusDisplayModel model;
-  const JobStatusDisplayWigget(this.model);
-
-  @override
-  Widget build(BuildContext context) {
-    return MyTextWidget(
-        text: model.statusText, color: model.statusColor, fontSize: 20);
   }
 }
