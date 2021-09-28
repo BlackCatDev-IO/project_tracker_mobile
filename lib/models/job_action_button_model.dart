@@ -6,6 +6,9 @@ class JobActionButtonModel {
   final Color color;
   final JobStatus status;
 
-  JobActionButtonModel(
-      {required this.buttonText, required this.color, required this.status});
+  JobActionButtonModel({
+    required this.buttonText,
+    required this.color,
+    required this.status,
+  });
 }

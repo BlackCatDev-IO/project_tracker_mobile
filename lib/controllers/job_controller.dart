@@ -40,8 +40,10 @@ class JobController extends GetxController {
     Get.toNamed(SelectedJobScreen.id);
   }
 
-  Future<void> jobAction(
-      {required JobStatus status, required BuildContext toastContext}) async {
+  Future<void> jobAction({
+    required JobStatus status,
+    required BuildContext toastContext,
+  }) async {
     jobActionTime = TimeOfDay.now();
 
     switch (status) {
@@ -88,52 +90,58 @@ class JobController extends GetxController {
   /// mock data for now -- real data to be populated from server
   void _initJobList() {
     final model1 = JobModel(
-        jobCode: 'C32434',
-        jobTitle: 'President of Ghana',
-        eventLocation: EventLocationController.to.eventLocationList[0],
-        setupTime: DateTime(2021, 9, 26, 6),
-        eventStart: DateTime(2021, 9, 26, 8),
-        eventEnd: DateTime(2021, 9, 26, 12));
+      jobCode: 'C32434',
+      jobTitle: 'President of Ghana',
+      eventLocation: EventLocationController.to.eventLocationList[0],
+      setupTime: DateTime(2021, 9, 26, 6),
+      eventStart: DateTime(2021, 9, 26, 8),
+      eventEnd: DateTime(2021, 9, 26, 12),
+    );
 
     final model2 = JobModel(
-        jobCode: 'C30643',
-        jobTitle: 'Harvard Hall Gala 2021',
-        eventLocation: EventLocationController.to.eventLocationList[1],
-        setupTime: DateTime(2021, 9, 26, 7),
-        eventStart: DateTime(2021, 9, 26, 9),
-        eventEnd: DateTime(2021, 9, 26, 13));
+      jobCode: 'C30643',
+      jobTitle: 'Harvard Hall Gala 2021',
+      eventLocation: EventLocationController.to.eventLocationList[1],
+      setupTime: DateTime(2021, 9, 26, 7),
+      eventStart: DateTime(2021, 9, 26, 9),
+      eventEnd: DateTime(2021, 9, 26, 13),
+    );
 
     final model3 = JobModel(
-        jobCode: 'C345689',
-        jobTitle: 'Harvard Fundraiser Dinner',
-        eventLocation: EventLocationController.to.eventLocationList[2],
-        setupTime: DateTime(2021, 9, 26, 8),
-        eventStart: DateTime(2021, 9, 26, 9),
-        eventEnd: DateTime(2021, 9, 26, 11));
+      jobCode: 'C345689',
+      jobTitle: 'Harvard Fundraiser Dinner',
+      eventLocation: EventLocationController.to.eventLocationList[2],
+      setupTime: DateTime(2021, 9, 26, 8),
+      eventStart: DateTime(2021, 9, 26, 9),
+      eventEnd: DateTime(2021, 9, 26, 11),
+    );
 
     final model4 = JobModel(
-        jobCode: 'C323569',
-        jobTitle: 'Investor Meeting',
-        eventLocation: EventLocationController.to.eventLocationList[1],
-        setupTime: DateTime(2021, 9, 26, 9),
-        eventStart: DateTime(2021, 9, 26, 10),
-        eventEnd: DateTime(2021, 9, 26, 14));
+      jobCode: 'C323569',
+      jobTitle: 'Investor Meeting',
+      eventLocation: EventLocationController.to.eventLocationList[1],
+      setupTime: DateTime(2021, 9, 26, 9),
+      eventStart: DateTime(2021, 9, 26, 10),
+      eventEnd: DateTime(2021, 9, 26, 14),
+    );
 
     final model5 = JobModel(
-        jobCode: 'C323568',
-        jobTitle: 'Insurance Meeting',
-        eventLocation: EventLocationController.to.eventLocationList[1],
-        setupTime: DateTime(2021, 9, 26, 9, 30),
-        eventStart: DateTime(2021, 9, 26, 12),
-        eventEnd: DateTime(2021, 9, 26, 13));
+      jobCode: 'C323568',
+      jobTitle: 'Insurance Meeting',
+      eventLocation: EventLocationController.to.eventLocationList[1],
+      setupTime: DateTime(2021, 9, 26, 9, 30),
+      eventStart: DateTime(2021, 9, 26, 12),
+      eventEnd: DateTime(2021, 9, 26, 13),
+    );
 
     final model6 = JobModel(
-        jobCode: 'C29535',
-        jobTitle: 'Alumni Party',
-        eventLocation: EventLocationController.to.eventLocationList[1],
-        setupTime: DateTime(2021, 9, 26, 15),
-        eventStart: DateTime(2021, 9, 26, 20),
-        eventEnd: DateTime(2021, 9, 26, 23));
+      jobCode: 'C29535',
+      jobTitle: 'Alumni Party',
+      eventLocation: EventLocationController.to.eventLocationList[1],
+      setupTime: DateTime(2021, 9, 26, 15),
+      eventStart: DateTime(2021, 9, 26, 20),
+      eventEnd: DateTime(2021, 9, 26, 23),
+    );
 
     jobList.add(model1);
     jobList.add(model2);

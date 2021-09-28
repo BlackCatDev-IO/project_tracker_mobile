@@ -1,7 +1,7 @@
 import 'package:black_cat_lib/widgets/my_custom_widgets.dart';
-import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:hc_labor_tracker/models/job_status_display_model.dart';
+import 'package:sizer/sizer.dart';
 
 class JobStatusDisplayWidget extends StatelessWidget {
   final JobStatusDisplayModel model;
@@ -10,6 +10,9 @@ class JobStatusDisplayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyTextWidget(
-        text: model.statusText, color: model.statusColor, fontSize: 15.sp);
+      text: model.statusText,
+      color: model.statusColor,
+      fontSize: 15.sp,
+    );
   }
 }

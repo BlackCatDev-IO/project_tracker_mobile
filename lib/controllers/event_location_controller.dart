@@ -11,4 +11,3 @@ class EventLocationController extends GetxController {
     'TBD'
   ];
 }
- 

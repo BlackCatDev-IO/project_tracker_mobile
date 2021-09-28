@@ -8,15 +8,16 @@ class JobModel {
   DateTime setupTime, eventStart, eventEnd;
   JobStatus jobStatus;
 
-  JobModel(
-      {required this.jobCode,
-      required this.jobTitle,
-      required this.eventLocation,
-      required this.setupTime,
-      required this.eventStart,
-      required this.eventEnd,
-      this.jobStatus = JobStatus.setupNotYetBegun,
-      this.description});
+  JobModel({
+    required this.jobCode,
+    required this.jobTitle,
+    required this.eventLocation,
+    required this.setupTime,
+    required this.eventStart,
+    required this.eventEnd,
+    this.jobStatus = JobStatus.setupNotYetBegun,
+    this.description,
+  });
 
   factory JobModel.fromJson(Map<String, dynamic> json) {
     final jobCode = json['jobCode'] as String;
@@ -29,14 +30,15 @@ class JobModel {
     final status = parseStatus(json['status'] as String);
 
     return JobModel(
-        jobCode: jobCode,
-        jobTitle: jobTitle,
-        eventLocation: eventLocation,
-        description: description,
-        setupTime: setupTime,
-        eventStart: eventStart,
-        eventEnd: eventEnd,
-        jobStatus: status);
+      jobCode: jobCode,
+      jobTitle: jobTitle,
+      eventLocation: eventLocation,
+      description: description,
+      setupTime: setupTime,
+      eventStart: eventStart,
+      eventEnd: eventEnd,
+      jobStatus: status,
+    );
   }
 
   static JobStatus parseStatus(String status) {

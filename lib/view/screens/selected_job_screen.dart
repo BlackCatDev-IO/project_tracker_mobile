@@ -1,8 +1,8 @@
+import 'package:black_cat_lib/black_cat_lib.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
-import 'package:black_cat_lib/black_cat_lib.dart';
 import 'package:hc_labor_tracker/utils/job_status_formatter.dart';
 import 'package:hc_labor_tracker/view/widgets/buttons/job_action_button.dart';
 import 'package:hc_labor_tracker/view/widgets/job_display_widgets/job_status_display_widget.dart';

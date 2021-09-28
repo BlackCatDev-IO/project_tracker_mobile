@@ -11,12 +11,13 @@ class Snackbars {
     final startTime = JobController.to.jobActionTime;
     final snackBar = GetBar(
       messageText: MyTextWidget(
-          text:
-              'Setup for $jobTitle has begun at ${startTime.format(Get.context!)}',
-          fontFamily: 'Roboto',
-          color: Colors.black,
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w200),
+        text:
+            'Setup for $jobTitle has begun at ${startTime.format(Get.context!)}',
+        fontFamily: 'Roboto',
+        color: Colors.black,
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w200,
+      ),
       backgroundColor: Colors.white,
       snackPosition: SnackPosition.TOP,
       duration: const Duration(seconds: 3),
@@ -30,12 +31,13 @@ class Snackbars {
     final completedTime = JobController.to.jobActionTime;
     final snackBar = GetBar(
       messageText: MyTextWidget(
-          text:
-              'Setup for $jobTitle has completed at ${completedTime.format(Get.context!)}',
-          fontFamily: 'Roboto',
-          color: Colors.black,
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w200),
+        text:
+            'Setup for $jobTitle has completed at ${completedTime.format(Get.context!)}',
+        fontFamily: 'Roboto',
+        color: Colors.black,
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w200,
+      ),
       backgroundColor: Colors.white,
       duration: const Duration(seconds: 3),
     );

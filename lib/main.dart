@@ -19,15 +19,16 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Sizer(builder: (context, orientation, deviceType) {
-      return GetMaterialApp(
-        // home: const TestStateful(),
-        home: const HomePage(),
-        getPages: AppRoutes.pages,
-        theme: ThemeController.to.theme,
-        defaultTransition: Transition.fade,
-        debugShowCheckedModeBanner: false,
-      );
-    });
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return GetMaterialApp(
+          home: const HomePage(),
+          getPages: AppRoutes.pages,
+          theme: ThemeController.to.theme,
+          defaultTransition: Transition.fade,
+          debugShowCheckedModeBanner: false,
+        );
+      },
+    );
   }
 }

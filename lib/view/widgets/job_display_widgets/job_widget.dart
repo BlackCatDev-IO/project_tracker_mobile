@@ -1,13 +1,13 @@
+import 'package:black_cat_lib/black_cat_lib.dart';
 import 'package:black_cat_lib/widgets/my_custom_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:hc_labor_tracker/controllers/job_controller.dart';
 import 'package:hc_labor_tracker/models/job_model.dart';
 import 'package:hc_labor_tracker/utils/date_time_formatter.dart';
 import 'package:hc_labor_tracker/utils/job_status_formatter.dart';
 import 'package:sizer/sizer.dart';
-import 'package:get/get.dart';
-import 'package:black_cat_lib/black_cat_lib.dart';
 
 class JobWidget extends GetView<JobController> {
   final JobModel model;
@@ -66,9 +66,10 @@ class JobWidget extends GetView<JobController> {
                 const SizedBox()
               else
                 _JobParamWidget(
-                    description: 'Status',
-                    value: jobStatusDisplayModel.statusText,
-                    statusColor: jobStatusDisplayModel.statusColor),
+                  description: 'Status',
+                  value: jobStatusDisplayModel.statusText,
+                  statusColor: jobStatusDisplayModel.statusColor,
+                ),
               const Divider(color: Colors.white).paddingOnly(top: 10),
             ],
           );
@@ -108,12 +109,16 @@ class _JobParamWidget extends StatelessWidget {
     return Row(
       children: [
         MyTextWidget(
-            text: '$description: ',
-            color: Colors.blue,
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w500),
+          text: '$description: ',
+          color: Colors.blue,
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w500,
+        ),
         MyTextWidget(
-            text: value, color: statusColor ?? Colors.white, fontSize: 12.sp),
+          text: value,
+          color: statusColor ?? Colors.white,
+          fontSize: 12.sp,
+        ),
       ],
     );
   }
