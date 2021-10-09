@@ -39,6 +39,7 @@ dependencies:
   sizer: ^2.0.15
   intl: ^0.17.0
   get_storage: ^2.0.3
+  enum_to_string: ^2.0.1
 
 dev_dependencies:
   flutter_test:

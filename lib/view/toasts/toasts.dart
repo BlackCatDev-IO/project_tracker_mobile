@@ -50,7 +50,7 @@ class Toasts {
       isTop: false,
     );
   }
-
+ 
   static void strikeComplete(BuildContext context) {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
