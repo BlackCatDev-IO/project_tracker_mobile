@@ -17,7 +17,6 @@ class RemoteDBController extends GetxController {
   }
 
   void updateJobOnServer({required JobModel job}) {
-    final mongoDbObjectId = job.mongoDbObjectId;
     final jobMap = job.toJson();
     apiCaller.updateJob(job: jobMap);
   }

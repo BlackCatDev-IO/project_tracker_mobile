@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,8 +34,7 @@ class JobController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // _initJobList();
-    initJobListFromServer();
+    _initJobListFromServer();
   }
 
   void selectJob({required int index}) {
@@ -83,6 +84,20 @@ class JobController extends GetxController {
 
   void updateJob() {}
 
+  Future<void> _initJobListFromServer() async {
+    jobList = await RemoteDBController.to.initFromRemoteDB();
+    update();
+  }
+
+  void receiveNewJobFromServer(Map<String, dynamic> response) {
+    final newJob = JobModel.fromJson(response);
+    jobList.insert(0, newJob);
+    final status = response['jobStatus'] as String;
+    log(status);
+    update();
+    Toasts.jobAdded(context: Get.context!, title: newJob.jobTitle);
+  }
+
   Future<void> _editTime() async {
     final pickedTime = await showTimePicker(
       initialTime: TimeOfDay.now(),
@@ -90,10 +105,7 @@ class JobController extends GetxController {
       context: Get.context!,
     );
     jobActionTime = pickedTime!;
-  }
 
-  Future<void> initJobListFromServer() async {
-    jobList = await RemoteDBController.to.initFromRemoteDB();
     update();
   }
 }

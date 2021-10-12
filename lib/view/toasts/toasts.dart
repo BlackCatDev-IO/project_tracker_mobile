@@ -50,7 +50,7 @@ class Toasts {
       isTop: false,
     );
   }
- 
+
   static void strikeComplete(BuildContext context) {
     final jobTitle =
         JobController.to.jobList[JobController.to.selectedJobIndex].jobTitle;
@@ -58,6 +58,17 @@ class Toasts {
 
     final toastText =
         'Strike for $jobTitle has completed at ${jobCompletedTime.format(context)}';
+
+    MyToasts.showToast(
+      toastContext: context,
+      text: toastText,
+      bottomOffset: 150,
+      isTop: false,
+    );
+  }
+
+  static void jobAdded({required BuildContext context, required String title}) {
+    final toastText = '$title added to Job List';
 
     MyToasts.showToast(
       toastContext: context,

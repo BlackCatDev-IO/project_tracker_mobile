@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:get/get_connect.dart';
 
 class APICaller extends GetConnect {
-  static const url = 'http://192.168.1.110:3000/';
+  static const url = 'http://192.168.1.110:3000/db';
 
   Future<List> fetchRemoteJobData() async {
     final response = await httpClient.get(url);
