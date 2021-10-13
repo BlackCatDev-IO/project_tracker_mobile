@@ -6,7 +6,7 @@ import 'job_controller.dart';
 
 class SocketIOController extends GetxController {
   static SocketIOController get to => Get.find();
-  static const sockerURL = 'http://192.168.1.110:3000/';
+  static const sockerURL = 'https://ancient-ocean-90103.herokuapp.com/';
   static const socketEvent = 'job_added';
 
   final socket = IO.io(sockerURL, <String, dynamic>{

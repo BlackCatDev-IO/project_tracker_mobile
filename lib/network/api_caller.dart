@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:get/get_connect.dart';
 
 class APICaller extends GetConnect {
-  static const url = 'http://192.168.1.110:3000/db';
+  static const url = 'https://ancient-ocean-90103.herokuapp.com/db';
 
   Future<List> fetchRemoteJobData() async {
     final response = await httpClient.get(url);
